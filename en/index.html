@@ -19,6 +19,7 @@
   <meta property="og:title" content="YouTube Plus — Enhance your YouTube experience">
   <meta property="og:description" content="Floating player, smooth volume control, screenshots and cinema mode for YouTube.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://florianchapon.github.io/youtube-plus/en/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../ressources/youtube-favicon32.png=s32">
@@ -134,6 +135,7 @@
   const themeBtn = document.getElementById("themeBtn");
 
   frBtn.onclick = () => { window.location.href = "../fr/"; };
+  enBtn.onclick = () => { window.location.href = "../en/"; };
   themeBtn.onclick = () => {
     const dark = document.body.dataset.theme === "light";
     document.body.dataset.theme = dark ? "dark" : "light";
