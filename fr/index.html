@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>YouTube Plus — Floating Player & Enhanced Controls</title>
-  <meta name="description" content="YouTube Plus is a Chrome extension that enhances YouTube with a floating player, smooth volume control, screenshots and an immersive cinema mode.">
-  <meta name="keywords" content="YouTube extension, floating player, picture in picture, YouTube volume control, screenshot YouTube, cinema mode">
+  <title>YouTube Plus — Améliore ton expérience YouTube</title>
+  <meta name="description" content="YouTube Plus est une extension Chrome qui améliore YouTube avec un lecteur flottant, un contrôle de volume fluide, des captures d’écran et un mode cinéma immersif.">
+  <meta name="keywords" content="extension YouTube, lecteur flottant, picture in picture, contrôle du volume YouTube, capture d’écran YouTube, mode cinéma">
   <meta name="author" content="Florian Chapon">
-
+  
   <!-- Hreflang -->
   <link rel="alternate" hreflang="en" href="https://florianchapon.github.io/youtube-plus/en/">
   <link rel="alternate" hreflang="fr" href="https://florianchapon.github.io/youtube-plus/fr/">
   <link rel="alternate" hreflang="x-default" href="https://florianchapon.github.io/youtube-plus/en/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="YouTube Plus — Enhance your YouTube experience">
-  <meta property="og:description" content="Floating player, smooth volume control, screenshots and cinema mode for YouTube.">
+  <meta property="og:title" content="YouTube Plus — Améliore ton expérience YouTube">
+  <meta property="og:description" content="Lecteur flottant, contrôle du volume fluide, captures d’écran et mode cinéma pour YouTube.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://florianchapon.github.io/youtube-plus/fr/">
+
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../ressources/youtube-favicon32.png=s32">
@@ -134,6 +136,7 @@
   const themeBtn = document.getElementById("themeBtn");
 
   frBtn.onclick = () => { window.location.href = "../fr/"; };
+  enBtn.onclick = () => { window.location.href = "../en/"; };
   themeBtn.onclick = () => {
     const dark = document.body.dataset.theme === "light";
     document.body.dataset.theme = dark ? "dark" : "light";
