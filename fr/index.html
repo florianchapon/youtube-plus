@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>YouTube Plus — Floating Player & Enhanced Controls</title>
+  <meta name="description" content="YouTube Plus is a Chrome extension that enhances YouTube with a floating player, smooth volume control, screenshots and an immersive cinema mode.">
+  <meta name="keywords" content="YouTube extension, floating player, picture in picture, YouTube volume control, screenshot YouTube, cinema mode">
+  <meta name="author" content="Florian Chapon">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://florianchapon.github.io/youtube-plus/en/">
+  <link rel="alternate" hreflang="fr" href="https://florianchapon.github.io/youtube-plus/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://florianchapon.github.io/youtube-plus/en/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="YouTube Plus — Enhance your YouTube experience">
+  <meta property="og:description" content="Floating player, smooth volume control, screenshots and cinema mode for YouTube.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../ressources/youtube-favicon32.png=s32">
+  <link rel="icon" type="image/png" href="../ressources/youtube-favicon16.png=s16">
+
+
+  <style>
+    /* Le même CSS que précédemment (theme, animations, header, features, footer, hover etc.) */
+    :root {
+      --bg: #f9f9f9;
+      --text: #222;
+      --card: #ffffff;
+      --shadow: rgba(0,0,0,0.12);
+      --transition: 0.35s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #eeeeee;
+      --card: #1e1e1e;
+      --shadow: rgba(0,0,0,0.6);
+    }
+
+    * {
+      transition: background-color var(--transition),
+                  color var(--transition),
+                  box-shadow var(--transition),
+                  transform var(--transition),
+                  opacity var(--transition);
+      cursor: default;
+    }
+
+    body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+
+    header { background: #ff0000; color: white; padding: 1.8rem 1rem 2.2rem; text-align: center; position: relative; }
+
+    .top-controls { position: absolute; top: 12px; right: 16px; display: flex; gap: 12px; align-items: center; }
+
+    .top-controls button { background: transparent; border: none; font-size: 0.85rem; font-weight: bold; letter-spacing: 0.05em; cursor: pointer; opacity: 0.7; }
+
+    .top-controls button:hover { opacity: 1; transform: scale(1.15); }
+    .top-controls button.active { opacity: 1; }
+
+    .container { max-width: 900px; margin: auto; padding: 2rem 1rem; }
+
+    .fade { opacity: 0; transform: translateY(6px); }
+    .fade.show { opacity: 1; transform: translateY(0); }
+
+    .features { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
+    .feature { background: var(--card); border-radius: 10px; padding: 1.3rem; flex: 1 1 280px; box-shadow: 0 2px 6px var(--shadow); cursor: pointer; }
+    .feature:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 24px var(--shadow); }
+    .feature h3 { margin-top: 0; color: #e53e3e; }
+
+    .cta { text-align: center; margin: 3.5rem 0; }
+    .btn { background: #ff0000; color: white; padding: 1.1rem 2.8rem; text-decoration: none; border-radius: 8px; font-size: 1.15rem; display: inline-block; cursor: pointer; box-shadow: 0 8px 20px rgba(255,0,0,0.35); }
+    .btn:hover { transform: scale(1.08); box-shadow: 0 14px 30px rgba(255,0,0,0.55); }
+
+    footer { text-align: center; font-size: 0.9rem; padding: 1.6rem 1rem; color: #777; }
+    footer a { color: inherit; margin: 0 6px; text-decoration: none; font-size: 1.2rem; cursor: pointer; }
+    footer a:hover { transform: scale(1.15); }
+  </style>
+</head>
+
+<body data-theme="light">
+
+<header>
+  <div class="top-controls">
+    <button id="enBtn" class="active">EN</button>
+    <button id="frBtn">FR</button>
+    <button id="themeBtn" style="font-size: 1.2rem !important">🌙</button>
+  </div>
+
+  <h1 class="fade show">
+    <img src="../ressources/youtube-icon.png"
+         alt="YouTube"
+         style="height:96px; vertical-align:middle; margin-right:8px;">
+    YouTube Plus
+  </h1>
+
+  <p class="fade show">Améliore ton expérience YouTube avec des outils puissants et discrets</p>
+</header>
+
+<div class="container fade show">
+  <h2>🚀 Fonctionnalités</h2>
+  <div class="features">
+    <div class="feature"><h3>📺 Lecteur Flotant</h3><p>Regarde tes vidéos dans une fenêtre flottante au-dessus de toutes les autres applications.</p></div>
+    <div class="feature"><h3>📸 Impressions d'Ecran</h3><p>Capture instantanément n’importe quel moment d’une vidéo.</p></div>
+    <div class="feature"><h3>🎬 Mode Cinéma</h3><p>Un mode cinéma plus immersif et confortable.</p></div>
+    <div class="feature"><h3>🔊 Gestion du volume améliorée</h3><p>Un contrôle du volume fluide et précis — fini le son trop fort trop vite.</p></div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="https://chromewebstore.google.com/detail/youtube-plus-floating-pla/gnjcpipdcpjppdhkmckicdaahelekmgo" target="_blank">Ajouter à Chrome</a>
+  </div>
+
+  <h2>🎨 Intégration fluide</h2>
+  <ul>
+    <li>Boutons directement intégrés au lecteur YouTube.</li>
+    <li>Design natif et discret.</li>
+    <li>Extension légère et respectueuse de la vie privée.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Version 1.5 — Développé par Florian Chapon
+     <a href="https://www.linkedin.com/in/florianchapon/" target="_blank">🔗</a>
+     <a href="https://florian-chapon.fr/" target="_blank">🌐</a>
+  </p>
+</footer>
+
+<script>
+  const frBtn = document.getElementById("frBtn");
+  const themeBtn = document.getElementById("themeBtn");
+
+  frBtn.onclick = () => { window.location.href = "../fr/"; };
+  themeBtn.onclick = () => {
+    const dark = document.body.dataset.theme === "light";
+    document.body.dataset.theme = dark ? "dark" : "light";
+    themeBtn.textContent = dark ? "☀️" : "🌙";
+    themeBtn.style.transform = "rotate(180deg)";
+    setTimeout(() => themeBtn.style.transform = "", 300);
+  };
+
+  // Init theme based on system preference
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.body.dataset.theme = prefersDark ? "dark" : "light";
+  themeBtn.textContent = prefersDark ? "☀️" : "🌙";
+</script>
+
+</body>
+</html>
